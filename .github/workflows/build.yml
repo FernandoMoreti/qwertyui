@@ -1,38 +1,43 @@
-name: Build APK
+name: Gerar APK do Flutter
 
 on:
   push:
-    branches: [ main ]
-  workflow_dispatch:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# ─── ADICIONE ESTA SEÇÃO AQUI EMBAIXO ─────────────────────────────────────────
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+# ──────────────────────────────────────────────────────────────────────────────
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout código
+      - name: Baixar código fonte
         uses: actions/checkout@v4
 
-      - name: Instalar Flutter
+      - name: Configurar Java JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Configurar Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.0'
+          channel: 'stable'
 
-      - name: Criar config.json
-        run: |
-          echo '{
-            "GOOGLE_PLACES_KEY": "${{ secrets.GOOGLE_PLACES_KEY }}",
-            "GEMINI_API_KEY": "${{ secrets.GEMINI_API_KEY }}"
-          }' > config.json
-
-      - name: Instalar dependências
+      - name: Instalar dependências do projeto
         run: flutter pub get
 
-      - name: Build APK
-        run: flutter build apk --release
+      - name: Compilar APK (Debug)
+        run: flutter build apk --debug
 
-      - name: Upload APK
+      - name: Disponibilizar APK para Download
         uses: actions/upload-artifact@v4
         with:
-          name: app-release
-          path: build/app/outputs/flutter-apk/app-release.apk
+          name: meu-apk-debug
+          path: build/app/outputs/flutter-apk/app-debug.apk
