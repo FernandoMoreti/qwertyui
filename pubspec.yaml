@@ -1,0 +1,42 @@
+name: tour_inteligente
+description: "App de exploração local com IA"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # HTTP requests
+  http: ^1.2.1
+  
+  # Geolocalização
+  geolocator: ^12.0.0
+  
+  # Google Maps
+  google_maps_flutter: ^2.6.1
+  
+  # Gemini AI
+  google_generative_ai: ^0.4.3
+  
+  # Leitura do config.json
+  flutter_dotenv: ^5.1.0
+  
+  # Ícones e UI
+  cupertino_icons: ^1.0.2
+  
+  # URL Launcher para abrir rotas
+  url_launcher: ^6.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - config.json
