@@ -30,17 +30,20 @@ jobs:
         with:
           channel: 'stable'
 
+      - name: Limpar Cache do Flutter
+        run: flutter clean
+
       - name: Instalar dependências do projeto
         run: flutter pub get
 
       - name: Compilar APK (Release com as Chaves)
         run: |
-          flutter build apk --release \
+          flutter build apk --release --no-pub \
             --dart-define=GOOGLE_PLACES_KEY="${{ secrets.GOOGLE_PLACES_KEY }}" \
             --dart-define=GEMINI_API_KEY="${{ secrets.GEMINI_API_KEY }}"
 
       - name: Disponibilizar APK para Download
         uses: actions/upload-artifact@v4
         with:
-          name: meu-apk-debug
+          name: meu-apk-release
           path: build/app/outputs/flutter-apk/app-debug.apk
