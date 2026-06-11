@@ -14,7 +14,7 @@ class AppConfig {
     _loaded = true;
   }
  
-  static String get googlePlacesKey => _config['GOOGLE_PLACES_KEY'] ?? '';
-  static String get geminiApiKey => _config['GEMINI_API_KEY'] ?? '';
+  static String get googlePlacesKey => 'AIzaSyDWs2Uvi2MSBfCBA_uVJqYWJAjyqWtgDyk';
+  static String get geminiApiKey => 'AQ.Ab8RN6L6q2QdDHsRrUhO-W5sOywhbuFOf_SDRtte6T8UM2KKPA';
 }
  
