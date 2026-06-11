@@ -30,6 +30,10 @@ jobs:
         with:
           channel: 'stable'
 
+      - name: Criar config.json falso para a build passar
+        run: |
+          echo '{"GOOGLE_PLACES_KEY": "AIzaSyDWs2Uvi2MSBfCBA_uVJqYWJAjyqWtgDyk", "GEMINI_API_KEY": "AQ.Ab8RN6L6q2QdDHsRrUhO-W5sOywhbuFOf_SDRtte6T8UM2KKPA"}' > config.json
+
       - name: Instalar dependências do projeto
         run: flutter pub get
 
