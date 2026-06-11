@@ -38,7 +38,7 @@ jobs:
 
       - name: Compilar APK (Release com as Chaves)
         run: |
-          flutter build apk --release --no-pub \
+          flutter build apk --release --no-pub --no-shrink \
             --dart-define=GOOGLE_PLACES_KEY="${{ secrets.GOOGLE_PLACES_KEY }}" \
             --dart-define=GEMINI_API_KEY="${{ secrets.GEMINI_API_KEY }}"
 
