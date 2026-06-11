@@ -4,7 +4,6 @@ import 'views/map_screen.dart';
  
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await AppConfig.load();
   runApp(const TourInteligenteApp());
 }
  
