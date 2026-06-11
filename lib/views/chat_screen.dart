@@ -1,7 +1,7 @@
 // lib/views/chat_screen.dart
 
 import 'package:flutter/material.dart';
-import '../model/places.dart';
+import 'package:tour_inteligente/model/places.dart';
 import '../services/GeminiService.dart';
 
 class ChatAssistenteScreen extends StatefulWidget {
