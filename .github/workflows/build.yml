@@ -33,8 +33,11 @@ jobs:
       - name: Instalar dependências do projeto
         run: flutter pub get
 
-      - name: Compilar APK (Debug)
-        run: flutter build apk --debug
+      - name: Compilar APK (Release com as Chaves)
+        run: |
+          flutter build apk --release \
+            --dart-define=GOOGLE_PLACES_KEY="${{ secrets.GOOGLE_PLACES_KEY }}" \
+            --dart-define=GEMINI_API_KEY="${{ secrets.GEMINI_API_KEY }}"
 
       - name: Disponibilizar APK para Download
         uses: actions/upload-artifact@v4

@@ -14,7 +14,7 @@ class AppConfig {
     _loaded = true;
   }
  
-  static String get googlePlacesKey => 'AIzaSyDWs2Uvi2MSBfCBA_uVJqYWJAjyqWtgDyk';
-  static String get geminiApiKey => 'AQ.Ab8RN6L6q2QdDHsRrUhO-W5sOywhbuFOf_SDRtte6T8UM2KKPA';
+  static String get googlePlacesKey => const String.fromEnvironment('GOOGLE_PLACES_KEY', defaultValue: '');
+  static String get geminiApiKey => const String.fromEnvironment('GEMINI_API_KEY', defaultValue: '');
 }
  
